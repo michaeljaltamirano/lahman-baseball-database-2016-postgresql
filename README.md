@@ -18,6 +18,35 @@ You can find the source of the CSV files hosted on [Sean Lahman's website](http:
 
 As mentioned in the background, there is some erroneous data owing to an issue with the script used to generate the data. I will be keeping an eye on the repo and updating the data as fixes come in.
 
+## add_id.py
+
+add_id.py Python script that will add a column "id" with numbers incrementing 1 through n total rows in the included CSV files. This script is helpful if you need to modify the schema in this repo to read like so:
+
+```SQL
+
+DROP TABLE IF EXISTS AllStarFull;
+CREATE TABLE IF NOT EXISTS AllStarFull (
+	id SERIAL PRIMARY KEY,
+	...
+	UNIQUE (playerID,yearID,gameNum)
+);
+
+```
+
+Rather than in its current form:
+
+```SQL
+
+DROP TABLE IF EXISTS AllStarFull;
+CREATE TABLE IF NOT EXISTS AllStarFull (
+	...
+	PRIMARY KEY (playerID,yearID,gameNum)
+);
+
+```
+
+Instructions for the script are included in comments in the file.
+
 ## Acknowledgements
 
 [Kris Eberwein](https://github.com/keberwein/Postgres_Lahman_Baseball) and [Brett Nycum](https://github.com/brentnycum/lahman-postgres) for their very resourceful repos I discovered when searching for PostgreSQL implementations of Lahman's Baseball Database.
