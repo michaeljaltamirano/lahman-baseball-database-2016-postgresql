@@ -406,12 +406,30 @@ CREATE TABLE IF NOT EXISTS ManagersHalf (
 -- --------------------------------------------------------
 
 --
--- Table structure for table Master
+-- Table structure for table Parks
 --
 --
 
-DROP TABLE IF EXISTS Master;
-CREATE TABLE IF NOT EXISTS Master (
+DROP TABLE IF EXISTS Parks;
+CREATE TABLE IF NOT EXISTS Parks (
+	park varchar(50) NOT NULL,
+	park_name varchar(100) DEFAULT NULL,
+	park_alias varchar(100) DEFAULT NULL,
+	city varchar(50) DEFAULT NULL,
+	state varchar(50) DEFAULT NULL,
+	country varchar(50) DEFAULT NULL,
+	PRIMARY KEY (park)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table People
+--
+--
+
+DROP TABLE IF EXISTS People;
+CREATE TABLE IF NOT EXISTS People (
 	playerID varchar(10) DEFAULT NULL,
 	birthYear int DEFAULT NULL,
 	birthMonth int DEFAULT NULL,
@@ -437,24 +455,6 @@ CREATE TABLE IF NOT EXISTS Master (
 	retroID varchar(9) DEFAULT NULL,
 	bbrefID varchar(9) DEFAULT NULL,
 	PRIMARY KEY (playerID)
-);
-
--- --------------------------------------------------------
-
---
--- Table structure for table Parks
---
---
-
-DROP TABLE IF EXISTS Parks;
-CREATE TABLE IF NOT EXISTS Parks (
-	park varchar(50) NOT NULL,
-	park_name varchar(100) DEFAULT NULL,
-	park_alias varchar(100) DEFAULT NULL,
-	city varchar(50) DEFAULT NULL,
-	state varchar(50) DEFAULT NULL,
-	country varchar(50) DEFAULT NULL,
-	PRIMARY KEY (park)
 );
 
 -- --------------------------------------------------------
